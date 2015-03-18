@@ -20,5 +20,6 @@
 @interface TopViewController : UIViewController
 
 @property (nonatomic, assign) id <TopViewControllerDelegate> delegate;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @end

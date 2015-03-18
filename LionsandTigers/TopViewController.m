@@ -8,8 +8,11 @@
 
 #import "TopViewController.h"
 #import "RootViewController.h"
+#import "CustomCollectionViewCell.h"
 
-@interface TopViewController ()
+@interface TopViewController () <UICollectionViewDataSource,UICollectionViewDelegate>
+
+@property NSMutableArray *photosArray;
 
 @end
 
@@ -17,7 +20,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //[self.delegate self];
+    self.photosArray = [NSMutableArray new];
+    self.photosArray = [[NSMutableArray alloc] initWithObjects:[UIImage imageNamed:@"lion1"], [UIImage imageNamed:@"lion2"], [UIImage imageNamed:@"lion3"], nil];
+
 }
 
 - (IBAction)onBackButtonTapped:(id)sender viewController:(UIViewController *)viewController {
@@ -25,6 +30,21 @@
   
 
 }
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    CustomCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
+    for (UIImage *image in self.photosArray) {
+        cell.cellImageView.image = image;
+    }
+
+    return cell;
+}
+
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return self.photosArray.count;
+}
+
 
 
 

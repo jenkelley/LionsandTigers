@@ -199,7 +199,101 @@
                     <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="VN6-WM-37b">
                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="oJj-rG-drc">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" red="1" green="0.4881314315802725" blue="0.44316481320451606" alpha="1" colorSpace="calibratedRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hqD-lb-0oP">
+                                    <size key="itemSize" width="100" height="100"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="fPW-Ve-Nx3" customClass="CustomCollectionViewCell">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wns-Fd-84t">
+                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" red="0.94618639838988416" green="1" blue="0.92443679415585733" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="Wns-Fd-84t" firstAttribute="leading" secondItem="fPW-Ve-Nx3" secondAttribute="leading" id="09I-lK-sF7"/>
+                                            <constraint firstAttribute="trailing" secondItem="Wns-Fd-84t" secondAttribute="trailing" id="4cz-MM-eFc"/>
+                                            <constraint firstItem="Wns-Fd-84t" firstAttribute="top" secondItem="fPW-Ve-Nx3" secondAttribute="top" id="Qx0-rO-A1k"/>
+                                            <constraint firstAttribute="bottom" secondItem="Wns-Fd-84t" secondAttribute="bottom" id="gPP-xy-IoJ"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="subviews">
+                                                <exclude reference="Wns-Fd-84t"/>
+                                            </mask>
+                                            <mask key="constraints">
+                                                <exclude reference="09I-lK-sF7"/>
+                                                <exclude reference="4cz-MM-eFc"/>
+                                                <exclude reference="Qx0-rO-A1k"/>
+                                                <exclude reference="gPP-xy-IoJ"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="widthClass=compact">
+                                            <mask key="subviews">
+                                                <include reference="Wns-Fd-84t"/>
+                                            </mask>
+                                            <mask key="constraints">
+                                                <include reference="09I-lK-sF7"/>
+                                                <include reference="4cz-MM-eFc"/>
+                                                <include reference="Qx0-rO-A1k"/>
+                                                <include reference="gPP-xy-IoJ"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <outlet property="cellImageView" destination="Wns-Fd-84t" id="nP0-b5-fzT"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="zer-bs-Zi4" id="NlE-xW-OkM"/>
+                                    <outlet property="delegate" destination="zer-bs-Zi4" id="udC-nC-Y1R"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" red="0.60936956970856915" green="1" blue="0.63151273707149858" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="oJj-rG-drc" firstAttribute="leading" secondItem="VN6-WM-37b" secondAttribute="leadingMargin" constant="-16" id="CYD-FT-wnI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="oJj-rG-drc" secondAttribute="trailing" constant="-16" id="c5H-xT-OKS"/>
+                            <constraint firstItem="oJj-rG-drc" firstAttribute="top" secondItem="VN6-WM-37b" secondAttribute="topMargin" id="rYL-Cm-OwM">
+                                <variation key="widthClass=compact" constant="44"/>
+                            </constraint>
+                            <constraint firstItem="M8e-Ql-cQt" firstAttribute="top" secondItem="oJj-rG-drc" secondAttribute="bottom" id="wqY-vd-M3n"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="oJj-rG-drc"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="CYD-FT-wnI"/>
+                                <exclude reference="c5H-xT-OKS"/>
+                                <exclude reference="rYL-Cm-OwM"/>
+                                <exclude reference="wqY-vd-M3n"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="oJj-rG-drc"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="CYD-FT-wnI"/>
+                                <include reference="c5H-xT-OKS"/>
+                                <include reference="rYL-Cm-OwM"/>
+                                <include reference="wqY-vd-M3n"/>
+                            </mask>
+                        </variation>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="fHN-pU-fRU">
@@ -209,6 +303,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="collectionView" destination="oJj-rG-drc" id="wzX-xR-wf6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Flp-OU-h1v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

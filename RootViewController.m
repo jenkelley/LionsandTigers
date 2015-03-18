@@ -9,6 +9,7 @@
 #import "RootViewController.h"
 #import "TopViewController.h"
 #import "HUDViewController.h"
+#import "CustomCollectionViewCell.h"
 
 
 @interface RootViewController ()
@@ -16,6 +17,8 @@
 TopViewControllerDelegate,
 HUDViewControllerDelegate,
 UINavigationControllerDelegate
+//UICollectionViewDataSource,
+//UICollectionViewDelegate
 >
 
 @property (weak, nonatomic) IBOutlet UIView *topContainerView;
@@ -34,6 +37,8 @@ UINavigationControllerDelegate
     UINavigationController *navController = self.childViewControllers[1];
     self.tvc = navController.childViewControllers[0];
 
+    //self.hvc = navController.childViewControllers[2];
+
     self.tvc.delegate = self;
     self.hvc.delegate = self;
 
@@ -43,13 +48,32 @@ UINavigationControllerDelegate
 
 
 
+- (void)tigersButtonTapped:(UIButton *)sender {
+    self.hvc.photosArray = [[NSMutableArray alloc] initWithObjects:[UIImage imageNamed:@"tiger1"], [UIImage imageNamed:@"tiger2"], [UIImage imageNamed:@"tiger3"], nil];
+    CustomCollectionViewCell *cell;
+    for (UIImage *image in self.hvc.photosArray) {
+        cell.cellImageView.image = image;
+
+    }
+    self.rightConstraint.constant = 0;
+    self.leftConstraint.constant = 0;
+    [self.tvc.collectionView reloadData];
+
+
+}
+
+
+- (void)lionsButtonTapped:(UIButton *)sender {
+
+}
+
 
 - (void)topRevealButtonTapped:(id)button viewController:(UIViewController *)viewController {
     
-[UIView animateWithDuration:1.0 animations:^{
-    self.rightConstraint.constant = -90;
-    self.leftConstraint.constant = 90;
-}];
+
+    self.rightConstraint.constant = -100;
+    self.leftConstraint.constant = 100;
+
 
 
 }

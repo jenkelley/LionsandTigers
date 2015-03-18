@@ -22,5 +22,7 @@
 @interface HUDViewController : UIViewController
 
 @property (nonatomic, assign) id <HUDViewControllerDelegate> delegate;
+@property NSMutableArray *photosArray;
+
 
 @end
