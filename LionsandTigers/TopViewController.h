@@ -13,7 +13,7 @@
 
 @optional
 
-- (void)topRevealButtonTapped:(id)button;
+- (void)topRevealButtonTapped:(id)button viewController:(UIViewController *)viewController;
 
 @end
 

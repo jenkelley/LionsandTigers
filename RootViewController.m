@@ -11,7 +11,12 @@
 #import "HUDViewController.h"
 
 
-@interface RootViewController () <TopViewControllerDelegate, HUDViewControllerDelegate, UIContentContainer>
+@interface RootViewController ()
+<
+TopViewControllerDelegate,
+HUDViewControllerDelegate,
+UINavigationControllerDelegate
+>
 
 @property (weak, nonatomic) IBOutlet UIView *topContainerView;
 @property TopViewController *tvc;
@@ -25,24 +30,27 @@
     [super viewDidLoad];
     self.tvc = [TopViewController new];
     self.hvc = [HUDViewController new];
-    NSLog(@"class == %@", self.tvc.class);
+
+    UINavigationController *navController = self.childViewControllers[1];
+    self.tvc = navController.childViewControllers[0];
+
     self.tvc.delegate = self;
-    NSLog(@"class == %@", self.tvc.class);
-
     self.hvc.delegate = self;
-
-
-    NSLog(@"class == %@", self.tvc.class);
 
 
 
 }
 
 
-- (void)topRevealButtonTapped:(id)button{
-    NSLog(@"Delegate called");
-    self.rightConstraint.constant = -40;
-    self.leftConstraint.constant = 40;
+
+
+- (void)topRevealButtonTapped:(id)button viewController:(UIViewController *)viewController {
+    
+[UIView animateWithDuration:1.0 animations:^{
+    self.rightConstraint.constant = -90;
+    self.leftConstraint.constant = 90;
+}];
+
 
 }
 

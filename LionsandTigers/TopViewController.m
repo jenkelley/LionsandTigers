@@ -20,8 +20,9 @@
     //[self.delegate self];
 }
 
-- (IBAction)onBackButtonTapped:(id)sender {
-    [self.delegate topRevealButtonTapped:sender];
+- (IBAction)onBackButtonTapped:(id)sender viewController:(UIViewController *)viewController {
+    [self.delegate topRevealButtonTapped:sender viewController:viewController];
+  
 
 }
 
