@@ -11,9 +11,11 @@
 #import "HUDViewController.h"
 
 
-@interface RootViewController () <TopViewControllerDelegate, HUDViewControllerDelegate>
+@interface RootViewController () <TopViewControllerDelegate, HUDViewControllerDelegate, UIContentContainer>
 
-
+@property (weak, nonatomic) IBOutlet UIView *topContainerView;
+@property TopViewController *tvc;
+@property HUDViewController *hvc;
 
 @end
 
@@ -21,29 +23,28 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tvc = [TopViewController new];
+    self.hvc = [HUDViewController new];
+    NSLog(@"class == %@", self.tvc.class);
+    self.tvc.delegate = self;
+    NSLog(@"class == %@", self.tvc.class);
 
-    // Do any additional setup after loading the view.
+    self.hvc.delegate = self;
+
+
+    NSLog(@"class == %@", self.tvc.class);
+
+
+
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
--(void)topRevealButtonTapped:(id)button{
-
-
+- (void)topRevealButtonTapped:(id)button{
+    NSLog(@"Delegate called");
     self.rightConstraint.constant = -40;
     self.leftConstraint.constant = 40;
-}
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
 }
-*/
+
 
 @end

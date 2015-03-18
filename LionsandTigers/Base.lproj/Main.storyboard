@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Root View Controller-->
@@ -46,14 +48,14 @@
                                 <exclude reference="tXH-Cy-cJM"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="ZVS-wl-UfU"/>
+                                <exclude reference="iTS-Jy-e24"/>
                                 <exclude reference="Ir4-pB-mND"/>
                                 <exclude reference="dKo-Ft-SCg"/>
                                 <exclude reference="rGY-tU-yeT"/>
                                 <exclude reference="frC-lS-bU1"/>
                                 <exclude reference="qH6-mo-BYX"/>
                                 <exclude reference="tZt-ER-nYv"/>
-                                <exclude reference="ZVS-wl-UfU"/>
-                                <exclude reference="iTS-Jy-e24"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -62,20 +64,21 @@
                                 <include reference="tXH-Cy-cJM"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="ZVS-wl-UfU"/>
+                                <include reference="iTS-Jy-e24"/>
                                 <include reference="Ir4-pB-mND"/>
                                 <include reference="dKo-Ft-SCg"/>
                                 <include reference="rGY-tU-yeT"/>
                                 <include reference="frC-lS-bU1"/>
                                 <include reference="qH6-mo-BYX"/>
                                 <include reference="tZt-ER-nYv"/>
-                                <include reference="ZVS-wl-UfU"/>
-                                <include reference="iTS-Jy-e24"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
                         <outlet property="leftConstraint" destination="qH6-mo-BYX" id="dpR-ia-SdY"/>
                         <outlet property="rightConstraint" destination="tZt-ER-nYv" id="rze-ee-8qD"/>
+                        <outlet property="topContainerView" destination="tXH-Cy-cJM" id="nz1-18-mKb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -91,16 +94,30 @@
                         <viewControllerLayoutGuide type="bottom" id="06w-lD-Dpe"/>
                     </layoutGuides>
                     <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="3Dv-J7-n8K">
+                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PKp-bP-ImC">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <color key="backgroundColor" red="0.82066209560000003" green="1" blue="0.77830214819999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="82" id="Buw-7o-5rL"/>
+                                    <constraint firstAttribute="height" constant="49" id="qm7-pJ-VsJ"/>
+                                </constraints>
                                 <state key="normal" title="Lions">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="16" y="20" width="82" height="49"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Buw-7o-5rL"/>
+                                        <exclude reference="qm7-pJ-VsJ"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="Buw-7o-5rL"/>
+                                        <include reference="qm7-pJ-VsJ"/>
+                                    </mask>
                                 </variation>
                                 <connections>
                                     <action selector="onLionsButtonTapped:" destination="7AO-LG-z8S" eventType="touchUpInside" id="gzF-Ub-3Vj"/>
@@ -109,11 +126,24 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kbf-ln-55C">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <color key="backgroundColor" red="0.82066209560000003" green="1" blue="0.77830214819999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="82" id="BQB-fB-Ukl"/>
+                                    <constraint firstAttribute="height" constant="49" id="pCt-vC-4Wo"/>
+                                </constraints>
                                 <state key="normal" title="Tigers">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="16" y="77" width="82" height="49"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="BQB-fB-Ukl"/>
+                                        <exclude reference="pCt-vC-4Wo"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="BQB-fB-Ukl"/>
+                                        <include reference="pCt-vC-4Wo"/>
+                                    </mask>
                                 </variation>
                                 <connections>
                                     <action selector="onTigersButtonTapped:" destination="7AO-LG-z8S" eventType="touchUpInside" id="zpV-WJ-CXh"/>
@@ -121,10 +151,22 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="PKp-bP-ImC" firstAttribute="leading" secondItem="3Dv-J7-n8K" secondAttribute="leadingMargin" id="49b-Va-84x"/>
+                            <constraint firstItem="PKp-bP-ImC" firstAttribute="top" secondItem="D8v-qS-tqY" secondAttribute="bottom" constant="20" id="gjT-Al-TRa"/>
+                            <constraint firstItem="kbf-ln-55C" firstAttribute="leading" secondItem="3Dv-J7-n8K" secondAttribute="leadingMargin" id="rMi-MD-Dsw"/>
+                            <constraint firstItem="kbf-ln-55C" firstAttribute="top" secondItem="PKp-bP-ImC" secondAttribute="bottom" constant="8" id="thI-M4-myH"/>
+                        </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="PKp-bP-ImC"/>
                                 <exclude reference="kbf-ln-55C"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="49b-Va-84x"/>
+                                <exclude reference="gjT-Al-TRa"/>
+                                <exclude reference="rMi-MD-Dsw"/>
+                                <exclude reference="thI-M4-myH"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -132,12 +174,19 @@
                                 <include reference="PKp-bP-ImC"/>
                                 <include reference="kbf-ln-55C"/>
                             </mask>
+                            <mask key="constraints">
+                                <include reference="49b-Va-84x"/>
+                                <include reference="gjT-Al-TRa"/>
+                                <include reference="rMi-MD-Dsw"/>
+                                <include reference="thI-M4-myH"/>
+                            </mask>
                         </variation>
                     </view>
                     <toolbarItems/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="doW-ed-tbP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1314" y="1026"/>
         </scene>
         <!--Top View Controller-->
         <scene sceneID="aNE-Jg-IEH">
@@ -148,8 +197,9 @@
                         <viewControllerLayoutGuide type="bottom" id="M8e-Ql-cQt"/>
                     </layoutGuides>
                     <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="VN6-WM-37b">
+                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.60936956970856915" green="1" blue="0.63151273707149858" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="fHN-pU-fRU">
@@ -162,7 +212,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Flp-OU-h1v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1963.5" y="161"/>
+            <point key="canvasLocation" x="2023.5" y="285"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2FR-5W-Anc">
@@ -180,7 +230,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cuU-pc-Zii" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1045.5" y="161"/>
+            <point key="canvasLocation" x="1282.5" y="285"/>
         </scene>
     </scenes>
 </document>

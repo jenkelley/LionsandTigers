@@ -17,11 +17,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    //[self.delegate self];
 }
 
 - (IBAction)onBackButtonTapped:(id)sender {
-   // self.delegate = self
     [self.delegate topRevealButtonTapped:sender];
 
 }
