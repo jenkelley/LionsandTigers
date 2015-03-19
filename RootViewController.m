@@ -36,8 +36,7 @@ UINavigationControllerDelegate
 
     UINavigationController *navController = self.childViewControllers[1];
     self.tvc = navController.childViewControllers[0];
-
-    //self.hvc = navController.childViewControllers[2];
+    self.hvc = self.childViewControllers[0];
 
     self.tvc.delegate = self;
     self.hvc.delegate = self;
@@ -49,9 +48,9 @@ UINavigationControllerDelegate
 
 
 - (void)tigersButtonTapped:(UIButton *)sender {
-    self.hvc.photosArray = [[NSMutableArray alloc] initWithObjects:[UIImage imageNamed:@"tiger1"], [UIImage imageNamed:@"tiger2"], [UIImage imageNamed:@"tiger3"], nil];
+    self.tvc.photosArray = [[NSMutableArray alloc] initWithObjects:[UIImage imageNamed:@"tiger1"], [UIImage imageNamed:@"tiger2"], [UIImage imageNamed:@"tiger3"], nil];
     CustomCollectionViewCell *cell;
-    for (UIImage *image in self.hvc.photosArray) {
+    for (UIImage *image in self.tvc.photosArray) {
         cell.cellImageView.image = image;
 
     }
@@ -64,6 +63,16 @@ UINavigationControllerDelegate
 
 
 - (void)lionsButtonTapped:(UIButton *)sender {
+    self.tvc.photosArray = [[NSMutableArray alloc] initWithObjects:[UIImage imageNamed:@"lion1"], [UIImage imageNamed:@"lion2"], [UIImage imageNamed:@"lion3"], nil];
+    CustomCollectionViewCell *cell;
+    for (UIImage *image in self.tvc.photosArray) {
+        cell.cellImageView.image = image;
+
+    }
+
+    self.rightConstraint.constant = 0;
+    self.leftConstraint.constant = 0;
+    [self.tvc.collectionView reloadData];
 
 }
 

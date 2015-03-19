@@ -21,5 +21,6 @@
 
 @property (nonatomic, assign) id <TopViewControllerDelegate> delegate;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property NSMutableArray *photosArray;
 
 @end

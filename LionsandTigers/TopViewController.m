@@ -12,7 +12,6 @@
 
 @interface TopViewController () <UICollectionViewDataSource,UICollectionViewDelegate>
 
-@property NSMutableArray *photosArray;
 
 @end
 
@@ -21,7 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.photosArray = [NSMutableArray new];
-    self.photosArray = [[NSMutableArray alloc] initWithObjects:[UIImage imageNamed:@"lion1"], [UIImage imageNamed:@"lion2"], [UIImage imageNamed:@"lion3"], nil];
+
 
 }
 
@@ -33,10 +32,7 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     CustomCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
-    for (UIImage *image in self.photosArray) {
-        cell.cellImageView.image = image;
-    }
-
+    cell.cellImageView.image = [self.photosArray objectAtIndex:indexPath.row];
     return cell;
 }
 
